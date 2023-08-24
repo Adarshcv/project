@@ -1,0 +1,107 @@
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>ViewOrder | iMALL</title>
+      <link rel="stylesheet" href="../static/css/adorstyle.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <nav>
+         <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+         </div>
+         <div class="logo">
+            iMALL
+         </div>
+         ADMIN DASHBOARD
+         <div class="profile">
+            <i class="fas fa-user"></i>
+         </div>
+      </nav>
+      <body>
+         <h1 class="mp">MANAGE ORDERS</h1>
+         <div class="container">
+            <table class="neumorphic">
+         <thead>
+           <tr>
+            <TH>ORDER ID</TH>
+            <TH>DATE</TH>
+            <TH>ADDRESS</TH>
+            <TH>TOTAL</TH>
+            <TH >STATUS</TH>
+            <TH colspan="3">CHANGE STATUS</TH>
+            <th></th>
+           </tr>
+           <TR>
+            <tD></tD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            <TD></TD>
+            </TR>
+            </thead>
+            {%for item in val%}
+            <tbody>
+            <TR>
+               <TD>{{item[0]}}</TD>
+               <TD>{{item[2]}}</TD>
+               <TD>{{item[5][0]}}</TD>
+               <TD>{{item[3]}}&#8377;</TD>
+               <TD>{{item[4]}}</TD>
+               <TD><a href="/ordered?orderid={{item[0]}}"><icon class="fas fa-shopping-cart"></icon></a></TD>
+               <TD><a href="/shipped?orderid={{item[0]}}"><icon class="fas fa-truck"></icon></a></TD>
+               <TD><a href="/delivered?orderid={{item[0]}}"><icon class="fas fa-handshake"></icon></a></TD>
+               <TD><a href="/avieworder?orderid={{item[0]}}"><button>VIEW ORDER</button></a></TD>
+            </TR>
+            {%endfor%}
+            <TR>
+               
+            </TR>
+            <TR>
+               <td colspan="4">
+                  <td colspan="5">
+                  <icon class="fas fa-shopping-cart">ORDERED</icon>&nbsp;&nbsp;
+      <icon class="fas fa-truck">SHIPPED</icon>&nbsp;&nbsp;
+      <icon class="fas fa-handshake">DELIVERED</icon>
+   </td>
+               </td>
+            </TR>
+            </tbody>
+         </TABLE>
+
+      </div>
+         
+       </body>
+      <script>
+         const menuBtn = document.querySelector(".menu-icon span");
+         const searchBtn = document.querySelector(".search-icon");
+         const cancelBtn = document.querySelector(".cancel-icon");
+         const items = document.querySelector(".nav-items");
+         const form = document.querySelector("form");
+         menuBtn.onclick = ()=>{
+           items.classList.add("active");
+           menuBtn.classList.add("hide");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+         cancelBtn.onclick = ()=>{
+           items.classList.remove("active");
+           menuBtn.classList.remove("hide");
+           searchBtn.classList.remove("hide");
+           cancelBtn.classList.remove("show");
+           form.classList.remove("active");
+           cancelBtn.style.color = "#ff3d00";
+         }
+         searchBtn.onclick = ()=>{
+           form.classList.add("active");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+      </script>
+   </body>
+</html>

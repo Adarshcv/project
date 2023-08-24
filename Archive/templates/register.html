@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Register | iMALL</title>
+      <link rel="stylesheet" href="../static/css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+       <div class="header">
+        <div class="header_txt">
+        iMALL
+        </div>
+       </div>
+      <div class="content1">
+         <div class="text">
+            REGISTER NOW
+         </div>
+         <form action="/regnow" method="post">
+            <div class="field">
+                <input type="text" name="name" required>
+                <span class="fas fa-user"></span>
+                <label>Name</label>
+             </div>
+            <div class="field">
+               <input type="text" name="email" required>
+               <span class="fas fa-envelope"></span>
+               <label>Email</label>
+            </div>
+            <div class="field">
+                <input type="text" name="phone" required>
+                <span class="fas fa-phone"></span>
+                <label>Phone</label>
+             </div>
+            <div class="field">
+               <input type="password" name="pass" required>
+               <span class="fas fa-lock"></span>
+               <label>Password</label>
+            </div>
+            <div class="field">
+                <input type="password" name="password" required>
+                <span class="fas fa-lock"></span>
+                <label>Confirm Password</label>
+             </div>
+            <button class="reg">Register Now</button>
+         </form>
+      </div>
+      <div class="footer">
+        created by ADARSH C V
+      </div>
+   </body>
+</html>

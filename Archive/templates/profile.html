@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PROFILE | iMALL</title>
+    <link rel="stylesheet" href="../static/css/profile-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="img-area">
+      <div class="inner-area">
+        <img src="../static/images/profile.jpeg" alt="">
+      </div>
+    </div>
+    <div class="icon arrow"><a href="home"><i class="fas fa-arrow-left"></i></a></div>
+    <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
+    <div class="name">{{res[1]}}</div>
+    <div class="about">{{res[2]}}</div>
+    <div class="Phone">{{res[5]}}</div>
+    <!-- <div class="social-icons">
+      <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="insta"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+    </div> -->
+    <div class="buttons">
+      <a href="/orderr?userid={{res[0]}}">
+      <button><i class="fas fa-store"></i><span>Orders</span></button></a>
+      <a href="/fav">
+      <button>
+        <i class="icon-2 fas fa-heart"></i>
+        <span>Favourites</span></button>
+      </a>
+    </div>
+    <div class="buttons">
+      <a href="/cart">
+      <button><i class="fas fa-shopping-cart"></i>
+        <span>Cart</span></button></a>
+        <a href="/logout">
+        <button><i class='fas fa-sign-out-alt'></i>
+          <span>Logout</span></button>
+        </a>
+    </div>
+    <!-- <div class="social-share">
+      <div class="row">
+        <i class="far fa-heart"></i>
+        <i class="icon-2 fas fa-heart"></i>
+        <span>Favourites</span>
+      </div>
+      <div class="row">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Cart</span>
+      </div>
+    </div> -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>ViewOrder | iMALL</title>
+      <link rel="stylesheet" href="../static/css/adorstyle.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <nav>
+         <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+         </div>
+         <a href="/home?userid={{ session.get('uuid') }}">
+         <div class="logo">
+            iMALL
+         </div>
+      </a>
+         ORDERS
+         <div class="profile">
+            <a href="/profile?userid={{ session.get('uuid') }}">
+            <i class="fas fa-user"></i></a>
+         </div>
+      </nav>
+      <body>
+         <h1 class="mp">MANAGE ORDERS</h1>
+         <div class="container">
+            <table class="neumorphic">
+         <thead>
+           <tr>
+            <TH>ORDER ID</TH>
+            <TH>DATE</TH>
+            <TH>ADDRESS</TH>
+            <TH>TOTAL</TH>
+            <TH >STATUS</TH>
+            <TH></TH>
+           </tr>
+            </thead>
+            {%for item in val%}
+            <tbody>
+            <TR>
+               <TD>{{item[0]}}</TD>
+               <TD>{{item[2]}}</TD>
+               <TD>{{item[5][0]}}</TD>
+               <TD>{{item[3]}}&#8377;</TD>
+               <TD>{{item[4]}}</TD>
+               <TD><a href="/vieworder?orderid={{item[0]}}"><button>VIEW ORDER</button></a></TD>
+            </TR>
+            
+            {%endfor%}
+            <TR>
+               
+            </TR>
+            </tbody>
+         </TABLE>
+
+      </div>
+         
+       </body>
+      <script>
+         const menuBtn = document.querySelector(".menu-icon span");
+         const searchBtn = document.querySelector(".search-icon");
+         const cancelBtn = document.querySelector(".cancel-icon");
+         const items = document.querySelector(".nav-items");
+         const form = document.querySelector("form");
+         menuBtn.onclick = ()=>{
+           items.classList.add("active");
+           menuBtn.classList.add("hide");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+         cancelBtn.onclick = ()=>{
+           items.classList.remove("active");
+           menuBtn.classList.remove("hide");
+           searchBtn.classList.remove("hide");
+           cancelBtn.classList.remove("show");
+           form.classList.remove("active");
+           cancelBtn.style.color = "#ff3d00";
+         }
+         searchBtn.onclick = ()=>{
+           form.classList.add("active");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+      </script>
+   </body>
+</html>

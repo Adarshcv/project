@@ -1,0 +1,96 @@
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Favourite | iMALL</title>
+      <link rel="stylesheet" href="../static/css/adashstyle.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <nav>
+         <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+         </div>
+         <a href="/home?userid={{ session.get('uuid') }}">
+         <div class="logo">
+            iMALL
+         </div>
+      </a>
+         FAVOURITES
+         <div class="profile">
+            <a href="/profile?userid={{ session.get('uuid') }}">
+            <i class="fas fa-user"></i></a>
+         </div>
+      </nav>
+      <body>
+         <h1 class="mp">Favourites</h1>
+         <div class="container">
+            <table class="neumorphic">
+         <thead>
+           <tr>
+               <TH></TH>
+               <TH>Name</TH>
+               <TH>Description</TH>
+               <TH>Image</TH>
+               <TH>Price</TH>
+               <TH></TH>
+           </tr>
+            </thead>
+            {%for product in fav_product%}
+            <tbody>
+            <TR>
+               <TD></TD>
+               <TD>{{product[1]}}</TD>
+               <TD>{{product[2]}}</TD>
+               <TD><img src="../static/images/{{product[5]}}"></TD>
+               <TD>{{product[3]}}&#8377;</TD>
+               <TD><a href="/favtocart?p_id={{ product[0] }}"><i class="fas fa-shopping-cart"></i></a></TD>
+               <TD><a href="/deletefav?p_id={{ product[0] }}"><i class="fas fa-times"></i></a></TD>
+            </TR>
+            
+            {%endfor%}
+            <TR>
+               <td colspan="3"></td>
+               <td colspan="3"></td>
+            </TR>
+            {%for fav_id in favid1%}
+            <TR>
+               <td colspan="3">
+                  <a href="/alltocart?fav_id={{ fav_id }}">
+                  <button><i class="fas fa-shopping-cart"></i>Add to Cart</button></a></td>
+               <td colspan="3"><a href="/clearfav?fav_id={{ fav_id }}">
+                  <button><i class="fas fa-trash"></i>Clear Favourites</button></a></td>
+            </TR>
+            {%endfor%}
+            </tbody>
+         </TABLE>
+
+       </body>
+      <script>
+         const menuBtn = document.querySelector(".menu-icon span");
+         const searchBtn = document.querySelector(".search-icon");
+         const cancelBtn = document.querySelector(".cancel-icon");
+         const items = document.querySelector(".nav-items");
+         const form = document.querySelector("form");
+         menuBtn.onclick = ()=>{
+           items.classList.add("active");
+           menuBtn.classList.add("hide");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+         cancelBtn.onclick = ()=>{
+           items.classList.remove("active");
+           menuBtn.classList.remove("hide");
+           searchBtn.classList.remove("hide");
+           cancelBtn.classList.remove("show");
+           form.classList.remove("active");
+           cancelBtn.style.color = "#ff3d00";
+         }
+         searchBtn.onclick = ()=>{
+           form.classList.add("active");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+      </script>
+   </body>
+</html>
