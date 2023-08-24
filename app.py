@@ -2,7 +2,6 @@ from flask import *
 from datetime import datetime
 from db import *
 from functools import wraps
-from werkzeug.utils import secure_filename
 from flask_login import *
 app=Flask(__name__)
 app.secret_key="abc"
